@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'widgets/input.dart';
+import 'widgets/result.dart';
+import 'widgets/convert.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,44 +47,9 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              TextFormField(
-                controller: konversiController,
-                decoration: InputDecoration(
-                  hintText: 'Masukkan Suhu Dalam Celcius',
-                ),
-                keyboardType: TextInputType.number,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: <Widget>[
-                      Text('Suhu dalam Kelvin'),
-                      Text(
-                        '$_celciusToKelvin',
-                        style: TextStyle(fontSize: 50),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text('Suhu dalam Reamur'), 
-                      Text(
-                        '$_celciusToReamur',
-                        style: TextStyle(fontSize: 50),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: _konversiSuhu,
-                child: Container(
-                  width: 320.0,
-                  color: Colors.blue,
-                  child: Text('Konversi Suhu', textAlign: TextAlign.center,),
-                ),
-              ),
+              Input(konversiController: konversiController),
+              Result(celciusToKelvin: _celciusToKelvin, celciusToReamur: _celciusToReamur),
+              Convert(konvertHandler: _konversiSuhu),
             ],
           ),
         ),
@@ -90,3 +57,9 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+
+
+
+
+
