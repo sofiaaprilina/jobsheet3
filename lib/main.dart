@@ -13,6 +13,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  //variabel untuk konverter
+  double _inputUser = 0;
+  double _celciusToKelvin = 0;
+  double _celciusToReamur = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,7 +48,7 @@ class _MyAppState extends State<MyApp> {
                     children: [
                       Text('Suhu dalam Kelvin'),
                       Text(
-                        '150',
+                        '$_celciusToKelvin',
                         style: TextStyle(fontSize: 50),
                       ),
                     ],
@@ -52,7 +57,7 @@ class _MyAppState extends State<MyApp> {
                     children: [
                       Text('Suhu dalam Reamur'), 
                       Text(
-                        '40',
+                        '$_celciusToReamur',
                         style: TextStyle(fontSize: 50),
                       ),
                     ],
