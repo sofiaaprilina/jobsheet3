@@ -18,6 +18,13 @@ class _MyAppState extends State<MyApp> {
   double _celciusToKelvin = 0;
   double _celciusToReamur = 0;
 
+  void _konversiSuhu(){
+    setState(() {
+      _celciusToKelvin = _inputUser + 273.15;
+      _celciusToReamur = _inputUser * (4/5);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
