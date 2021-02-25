@@ -17,9 +17,11 @@ class _MyAppState extends State<MyApp> {
   double _inputUser = 0;
   double _celciusToKelvin = 0;
   double _celciusToReamur = 0;
+  TextEditingController konversiController;
 
   void _konversiSuhu(){
     setState(() {
+      _inputUser = double.parse(konversiController.text);
       _celciusToKelvin = _inputUser + 273.15;
       _celciusToReamur = _inputUser * (4/5);
     });
@@ -41,8 +43,9 @@ class _MyAppState extends State<MyApp> {
           margin: EdgeInsets.all(8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               TextFormField(
+                controller: konversiController,
                 decoration: InputDecoration(
                   hintText: 'Masukkan Suhu Dalam Celcius',
                 ),
@@ -52,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
-                    children: [
+                    children: <Widget>[
                       Text('Suhu dalam Kelvin'),
                       Text(
                         '$_celciusToKelvin',
@@ -61,7 +64,7 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   Column(
-                    children: [
+                    children: <Widget>[
                       Text('Suhu dalam Reamur'), 
                       Text(
                         '$_celciusToReamur',
@@ -71,12 +74,12 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
-              RaisedButton(
-                textColor: Colors.white,
-                color: Colors.blue,
-                onPressed: (){},
+              ElevatedButton(
+                onPressed: (){
+                },
                 child: Container(
                   width: 320.0,
+                  color: Colors.blue,
                   child: Text('Konversi Suhu', textAlign: TextAlign.center,),
                 ),
               ),
