@@ -1,6 +1,15 @@
 # jobsheet3
 
 A new Flutter project.
+<p>Gambar Hasil</p>
+<p>(1) Input text dengan TextFormField</p>
+<img src="/image/input text.jpg" width="200px" height="400px"></img>
+<p>(2) Keyboard angka </p>
+<img src="/image/keyboard angka.jpg" width="200px" height="400px"></img>
+<p>(3) Tampilan UI </p>
+<img src="/image/tampilan awal.jpg" width="200px" height="400px"></img>
+<p>(4) Hasil Result </p>
+<img src="/image/hasil result.jpg" width="200px" height="400px"></img>
 
 ## Getting Started
 
