@@ -13,16 +13,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  //untuk input user
+  TextEditingController konversiController = new TextEditingController();
   //variabel untuk konverter
   double _inputUser = 0;
   double _celciusToKelvin = 0;
   double _celciusToReamur = 0;
-  TextEditingController konversiController;
 
   void _konversiSuhu(){
     setState(() {
       _inputUser = double.parse(konversiController.text);
-      _celciusToKelvin = _inputUser + 273.15;
+      _celciusToKelvin = _inputUser + 273;
       _celciusToReamur = _inputUser * (4/5);
     });
   }
@@ -75,8 +76,7 @@ class _MyAppState extends State<MyApp> {
                 ],
               ),
               ElevatedButton(
-                onPressed: (){
-                },
+                onPressed: _konversiSuhu,
                 child: Container(
                   width: 320.0,
                   color: Colors.blue,
