@@ -8,12 +8,14 @@ class Convert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: konvertHandler,
-      child: Container(
-        width: 320.0,
-        color: Colors.blue,
-        child: Text('Konversi Suhu', textAlign: TextAlign.center,),
+    return Container(
+      width: double.infinity,
+      height: 50,
+      child: RaisedButton(
+        onPressed: konvertHandler,
+        color: Colors.blueAccent,
+        textColor: Colors.white,
+        child: Text("Konversi Suhu"),
       ),
     );
   }
