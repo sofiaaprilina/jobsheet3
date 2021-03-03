@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   void _konversiSuhu() {
     setState(() {
       _inputUser = double.parse(konversiController.text);
-      if(_newValue == "Kelvin")
+      if (_newValue == "Kelvin")
         _result = _inputUser + 273;
       else
         _result = (4 / 5) * _inputUser;
@@ -39,6 +39,8 @@ class _MyAppState extends State<MyApp> {
       _newValue = changeValue;
     });
   }
+
+  List<String> listViewItem = List<String>();
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +72,26 @@ class _MyAppState extends State<MyApp> {
                 onChanged: dropdownOnChanged,
                 onTap: _konversiSuhu,
               ),
-              Result(result: _result,),
+              Result(result: _result),
               Convert(konvertHandler: _konversiSuhu),
+              Container(
+                margin: EdgeInsets.only(top: 10, bottom: 10),
+                child: Text(
+                  "Riwayat Konversi",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Expanded(
+                child: ListView(
+                  children: listViewItem.map((String value) {
+                    return Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        value,
+                        style: TextStyle(fontSize: 15),
+                    ));
+                }).toList()),
+              ),
             ],
           ),
         ),
