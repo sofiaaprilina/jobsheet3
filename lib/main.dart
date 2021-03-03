@@ -22,6 +22,7 @@ class _MyAppState extends State<MyApp> {
   double _celciusToKelvin = 0;
   double _celciusToReamur = 0;
 
+  var listItem = ["Kelvin","Reamur"];
 
   void _konversiSuhu(){
     setState(() {
@@ -49,13 +50,13 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Input(konversiController: konversiController),
-              DropdownButton(
-                items: [
-                  DropdownMenuItem(
-                    value: "Kelvin", child: Container(child: Text("Kelvin"))),
-                  DropdownMenuItem(
-                    value: "Reamur", child: Container(child: Text("Reamur"))),
-                ],
+              DropdownButton<String>(
+                items: 
+                  listItem.map((String value){
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),);
+                }).toList(),
                 value: null,
                 onChanged: (String changeValue){},
               ),
