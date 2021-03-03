@@ -24,13 +24,19 @@ class _MyAppState extends State<MyApp> {
   String _newValue = "Kelvin";
   double _result = 0;
 
-  var listItem = ["Kelvin","Reamur"];
+  var listItem = ["Kelvin", "Reamur"];
 
-  void _konversiSuhu(){
+  void _konversiSuhu() {
     setState(() {
       _inputUser = double.parse(konversiController.text);
       _celciusToKelvin = _inputUser + 273;
-      _celciusToReamur = _inputUser * (4/5);
+      _celciusToReamur = _inputUser * (4 / 5);
+    });
+  }
+
+  void dropdownOnChanged(String changeValue) {
+    setState(() {
+      _newValue = changeValue;
     });
   }
 
@@ -53,16 +59,18 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               Input(konversiController: konversiController),
               DropdownButton<String>(
-                items: 
-                  listItem.map((String value){
+                items: listItem.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value),);
+                    child: Text(value),
+                  );
                 }).toList(),
                 value: _newValue,
-                onChanged: (String changeValue){},
+                onChanged: dropdownOnChanged,
               ),
-              Result(celciusToKelvin: _celciusToKelvin, celciusToReamur: _celciusToReamur),
+              Result(
+                  celciusToKelvin: _celciusToKelvin,
+                  celciusToReamur: _celciusToReamur),
               Convert(konvertHandler: _konversiSuhu),
             ],
           ),
