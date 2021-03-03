@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   //untuk input user
-  TextEditingController konversiController = new TextEditingController();
+  final konversiController = TextEditingController();
   //variabel untuk konverter
   double _inputUser = 0;
   String _newValue = "Kelvin";
@@ -68,6 +68,7 @@ class _MyAppState extends State<MyApp> {
                 }).toList(),
                 value: _newValue,
                 onChanged: dropdownOnChanged,
+                onTap: _konversiSuhu,
               ),
               Result(result: _result,),
               Convert(konvertHandler: _konversiSuhu),
