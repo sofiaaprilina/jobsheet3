@@ -19,8 +19,6 @@ class _MyAppState extends State<MyApp> {
   TextEditingController konversiController = new TextEditingController();
   //variabel untuk konverter
   double _inputUser = 0;
-  double _celciusToKelvin = 0;
-  double _celciusToReamur = 0;
   String _newValue = "Kelvin";
   double _result = 0;
 
@@ -29,8 +27,10 @@ class _MyAppState extends State<MyApp> {
   void _konversiSuhu() {
     setState(() {
       _inputUser = double.parse(konversiController.text);
-      _celciusToKelvin = _inputUser + 273;
-      _celciusToReamur = _inputUser * (4 / 5);
+      if(_newValue == "Kelvin")
+        _result = _inputUser + 273;
+      else
+        _result = (4 / 5) * _inputUser;
     });
   }
 
@@ -55,7 +55,8 @@ class _MyAppState extends State<MyApp> {
         body: Container(
           margin: EdgeInsets.all(8),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Input(konversiController: konversiController),
               DropdownButton<String>(
